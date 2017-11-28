@@ -13,4 +13,7 @@
 
 class Task < ApplicationRecord
   enum status: { not_yet: 0, started: 1, done: 2 }
+
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :description, length: { maximum: 100 }
 end
