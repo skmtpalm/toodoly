@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer          not null, primary key
+#  title       :string           not null
+#  description :text             not null
+#  status      :integer
+#  due         :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+class Task < ApplicationRecord
+  enum status: { not_yet: 0, started: 1, done: 2 }
+end
