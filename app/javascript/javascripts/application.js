@@ -8,5 +8,9 @@ import datepicker from '@fengyuanchen/datepicker';
     $(`#task-text-${targetTaskId}`).toggleClass('is-active');
   })
 
-  $('[data-toggle="datepicker"]').datepicker()
+  $('[data-toggle="datepicker"]').datepicker({
+    format: 'yyyy/mm/dd'
+  })
+
+
 })(jQuery)

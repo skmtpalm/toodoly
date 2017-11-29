@@ -25,17 +25,25 @@
       <div class="level-item">
         <p class="task__title"><%= task.title %></p>
 
-        <div class="task-text-toggle-nav" data-target-task-id="<%= task.id %>">
-          <span class="icon has-text-grey-lighter"><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
-        </div>
+        <% if task.description.present? %>
+          <div class="task-text-toggle-nav" data-target-task-id="<%= task.id %>">
+            <span class="icon has-text-grey-lighter"><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+          </div>
+        <% end %>
+
       </div>
     </div>
     <div class="level-right task__header__right">
-      <time class="level-item task__due"><%= task.due.strftime("%m月%d日") %></time>
+      <% if task.due.present? %>
+        <time class="level-item task__due"><%= task.due.strftime("%m月%d日") %></time>
+      <% end %>
     </div>
   </div>
-  <div class="task__body" id="task-text-<%= task.id %>">
-    <p class="task__body__text"><%= task.description %></p>
-    <span class="tag is-info">memo</span>
-  </div>
+
+  <% if task.description.present? %>
+    <div class="task__body" id="task-text-<%= task.id %>">
+      <p class="task__body__text"><%= task.description %></p>
+      <span class="tag is-info">memo</span>
+    </div>
+  <% end %>
 </div>

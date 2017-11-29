@@ -1,0 +1,40 @@
+<main class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <h2 class="title">New Task</h2>
+        <!--  Form -->
+        <%= form_with model: @task do |form| %>
+          <div class="field">
+            <%= form.label :title, class: 'label' %>
+            <div class="control">
+              <%= form.text_field :title, class: 'input' %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :description, class: 'label' %>
+            <div class="control">
+              <%= form.text_field :description, class: 'input' %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :due, class: 'label' %>
+            <div class="control">
+              <%= form.text_field :due, class: 'input', data: { toggle: :datepicker } %>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary">
+                Create New Task
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
