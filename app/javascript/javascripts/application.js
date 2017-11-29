@@ -1,4 +1,5 @@
-import $ from 'jquery';
+import jQuery from 'jquery';
+import datepicker from '@fengyuanchen/datepicker';
 
 (($) => {
   $('.task-text-toggle-nav').on('click', function() {
@@ -6,4 +7,6 @@ import $ from 'jquery';
 
     $(`#task-text-${targetTaskId}`).toggleClass('is-active');
   })
-})($)
+
+  $('[data-toggle="datepicker"]').datepicker()
+})(jQuery)
