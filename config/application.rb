@@ -40,5 +40,8 @@ module Toodoly
       countroller_specs: true
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+
+    # timezone
+    config.time_zone = 'Tokyo'
   end
 end
