@@ -1,0 +1,41 @@
+<div class="task">
+  <!--  Task Navigator -->
+  <div class="task__navigator dropdown is-hoverable">
+    <div class="dropdown-trigger">
+     <button class="button is-white" aria-haspopup="true" aria-controls="dropdown-menu">
+       <span class="icon is-small">
+         <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+       </span>
+     </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+      <div class="dropdown-content">
+        <a href="#" class="dropdown-item">
+          Edit Task
+        </a>
+        <a href="#" class="dropdown-item">
+          Delete Task
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="level task__header">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="task__title"><%= task.title %></p>
+
+        <div class="task-text-toggle-nav" data-target-task-id="<%= task.id %>">
+          <span class="icon has-text-grey-lighter"><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="level-right task__header__right">
+      <time class="level-item task__due"><%= task.due.strftime("%m月%d日") %></time>
+    </div>
+  </div>
+  <div class="task__body" id="task-text-<%= task.id %>">
+    <p class="task__body__text"><%= task.description %></p>
+    <span class="tag is-info">memo</span>
+  </div>
+</div>

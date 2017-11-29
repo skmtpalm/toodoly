@@ -1,5 +1,76 @@
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 @import "~bulma/bulma";
+$lightgray: hsla(0, 0%, 0%, 0.1);
 
 body {
   min-height: 100vh;
+}
+
+// Task List
+.task-text-toggle-nav {
+  cursor: pointer;
+}
+
+.tasks {
+  margin-bottom: 1.6rem;
+}
+.task {
+  position: relative;
+  border-bottom: 1px solid $lightgray;
+  &:hover {
+    .task__navigator {
+      opacity: 1.0;
+      transform: translateX(0px);
+    }
+  }
+
+  &__navigator {
+    opacity: 0;
+    transform: translateX(-10px);
+    position: absolute;
+    right: -2.5rem;
+    top: 18%;
+    transition: all 300ms ease;
+  }
+
+  &__header {
+    padding: 0.8rem 0;
+    &__right {
+    }
+  }
+
+  &__title {
+    margin-right: 1rem;
+  }
+
+  &__due {
+    position: relative;
+    font-size: 0.8rem;
+    display: inline-block;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $primary;
+    }
+  }
+
+  &__body {
+    display: none;
+    background-color: lighten($lightgray, 50%);
+    padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+    &__text {
+      margin-bottom: 0.8rem;
+    }
+  }
+  &__body.is-active  {
+    display: block;
+  }
+}
+.level.task__header {
+  margin-bottom: 0 !important;
 }

@@ -1,8 +1,12 @@
 <main class="section">
   <div class="container">
     <div class="columns">
-      <div class="colmun is-8">
-        <h2 class="title">ALL TASKS</h3>
+      <div class="column is-8 is-offset-2">
+        <h2 class="title">ALL TASKS</h2>
+        <div class="tasks">
+          <%= render partial: 'list_task', collection: @tasks, as: :task %>
+        </div>
+        <%= link_to 'Add Task', new_task_path, class: 'button is-outlined is-primary' %>
       </div>
     </div>
   </div>
