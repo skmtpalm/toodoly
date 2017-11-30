@@ -25,7 +25,15 @@
   <% if task.description.present? %>
     <div class="task__body" id="task-text-<%= task.id %>">
       <p class="task__body__text"><%= task.description %></p>
-      <span class="tag is-info">memo</span>
+
+      <div class="field is-grouped">
+        <p class="control">
+          <%= link_to 'Edit', edit_task_path(task), class: 'button is-small is-outlined is-primary' %>
+        </p>
+        <p class="control">
+          <%= link_to 'Delete', task_path(task), method: :delete,  class: 'button is-small is-outlined is-danger' %>
+        </p>
+      </div>
     </div>
   <% end %>
 </div>
