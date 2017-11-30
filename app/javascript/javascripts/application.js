@@ -14,9 +14,7 @@ import datepicker from '@fengyuanchen/datepicker';
 
   // Deleted flash handler
   $('.flash-delete-button').on('click', function() {
-    const parentElm = $(this).parent();
-    console.log(parentElm);
-    $(this).parent().css({ display: 'none' });
+    $('.flash-wrap').css({ display: 'none' });
   });
 
 })(jQuery)
