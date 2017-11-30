@@ -1,20 +1,6 @@
 <div class="task">
   <!--  Task Navigator -->
-  <div class="task__navigator dropdown is-hoverable">
-    <div class="dropdown-trigger">
-     <button class="button is-white" aria-haspopup="true" aria-controls="dropdown-menu">
-       <span class="icon is-small">
-         <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-       </span>
-     </button>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-      <div class="dropdown-content">
-        <%= link_to 'Edit Task', edit_task_path(task), class: 'dropdown-item' %>
-        <%= link_to 'Delete Task', task_path(task), method: :delete, class: 'dropdown-item' %>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'navigator', locals: { task: task } %>
 
   <div class="level task__header">
     <div class="level-left">
