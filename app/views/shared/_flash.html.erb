@@ -1,0 +1,14 @@
+<% flash.each do |key, message| %>
+  <section class="section flash">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8 is-offset-2">
+          <div class="notification<%= " is-#{key}" %>">
+            <button class="delete flash-delete-button"></button>
+            <%= message %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
