@@ -7,13 +7,16 @@
 <div class="field">
   <%= form.label :description, class: 'label' %>
   <div class="control">
-    <%= form.text_field :description, class: 'input' %>
+    <%= form.text_area :description, class: 'textarea' %>
   </div>
 </div>
 <div class="field">
   <%= form.label :due, class: 'label' %>
-  <div class="control">
+  <div class="control has-icons-left">
     <%= form.text_field :due, class: 'input', data: { toggle: :datepicker } %>
+    <span class="icon is-small is-left">
+     <i class="fa fa-calendar"></i>
+   </span>
   </div>
 </div>
 <div class="field">
