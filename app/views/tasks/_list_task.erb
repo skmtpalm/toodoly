@@ -10,12 +10,8 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item">
-          Edit Task
-        </a>
-        <a href="#" class="dropdown-item">
-          Delete Task
-        </a>
+        <%= link_to 'Edit Task', edit_task_path(task), class: 'dropdown-item' %>
+        <%= link_to 'Delete Task', task_path(task), method: :delete, class: 'dropdown-item' %>
       </div>
     </div>
   </div>

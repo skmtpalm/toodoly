@@ -9,7 +9,6 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    binding.pry
     if task.save
       # message
       redirect_to tasks_path
@@ -17,6 +16,25 @@ class TasksController < ApplicationController
       # message
       render :new
     end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    task = Task.find(params[:id])
+    if task.update_attributes(task_params)
+      redirect_to tasks_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_to tasks_path
   end
 
   private
