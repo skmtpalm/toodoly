@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:edit, :update, :destroy]
+
   def index
     @tasks = Task.all
   end
@@ -13,18 +15,15 @@ class TasksController < ApplicationController
       flash[:success] = 'Success! Create new Task!'
       redirect_to tasks_path
     else
-      # message
       render :new
     end
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    task = Task.find(params[:id])
-    if task.update_attributes(task_params)
+    if @task.update_attributes(task_params)
       flash[:success] = 'Success! Update Task!'
       redirect_to tasks_path
     else
@@ -33,13 +32,16 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task = Task.find(params[:id])
-    task.destroy!
+    @task.destroy!
     flash[:warning] = 'Success! Deleted Task!'
     redirect_to tasks_path
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def task_params
     params.require(:task).permit(:title, :description, :due, :status)
