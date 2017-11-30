@@ -4,10 +4,7 @@
       <div class="column is-6 is-offset-3">
         <h2 class="title">Edit Task</h2>
         <!--  Form -->
-        <%= form_with model: @task do |form| %>
-          <%= render partial: 'form', locals: { form: form, edit: true } %>
-        <% end %>
-
+        <%= render partial: 'form', locals: { task: @task, edit: true } %>
       </div>
     </div>
   </div>

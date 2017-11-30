@@ -17,4 +17,12 @@ import datepicker from '@fengyuanchen/datepicker';
     $('.flash-wrap').css({ display: 'none' });
   });
 
+  // Deleted error messages Handler
+  // const errorMessageBoard = $('.error-board');
+  // const errorBoardDeleteBtn = errorMessageBoard.find('.delete')
+  //
+  // errorBoardDeleteBtn.on('click', function() {
+  //   errorMessageBoard.css({ display: 'none' });
+  // })
+
 })(jQuery)

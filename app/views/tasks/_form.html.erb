@@ -1,28 +1,31 @@
-<div class="field">
-  <%= form.label :title, class: 'label' %>
-  <div class="control">
-    <%= form.text_field :title, class: 'input' %>
+<%= form_with(model: task, local: true) do |form| %>
+  <%= render partial: 'shared/error_messages', locals: { object: task } %>
+  <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input' %>
+    </div>
   </div>
-</div>
-<div class="field">
-  <%= form.label :description, class: 'label' %>
-  <div class="control">
-    <%= form.text_area :description, class: 'textarea' %>
+  <div class="field">
+    <%= form.label :description, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :description, class: 'textarea' %>
+    </div>
   </div>
-</div>
-<div class="field">
-  <%= form.label :due, class: 'label' %>
-  <div class="control has-icons-left">
-    <%= form.text_field :due, class: 'input', data: { toggle: :datepicker } %>
-    <span class="icon is-small is-left">
-     <i class="fa fa-calendar"></i>
-   </span>
+  <div class="field">
+    <%= form.label :due, class: 'label' %>
+    <div class="control has-icons-left">
+      <%= form.text_field :due, class: 'input', data: { toggle: :datepicker } %>
+      <span class="icon is-small is-left">
+       <i class="fa fa-calendar"></i>
+     </span>
+    </div>
   </div>
-</div>
-<div class="field">
-  <div class="control">
-    <button type="submit" class="button is-primary">
-      <%= edit ? 'Update Task' : 'Create New Task' %>
-    </button>
+  <div class="field">
+    <div class="control">
+      <button type="submit" class="button is-primary">
+        <%= edit ? 'Update Task' : 'Create New Task' %>
+      </button>
+    </div>
   </div>
-</div>
+<% end %>
