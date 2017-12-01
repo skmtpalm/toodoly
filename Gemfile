@@ -44,7 +44,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'annotate'
 
-
+  gem 'capybara'
 end
 
 group :development do
