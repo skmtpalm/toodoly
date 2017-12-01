@@ -30,10 +30,7 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Running Test
-          command: |
-            psql -c "create database test" -U postgres
+
       - run:
           name: install dependencies
           command: |
