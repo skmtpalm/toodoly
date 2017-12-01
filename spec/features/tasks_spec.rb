@@ -9,8 +9,7 @@ RSpec.feature "Tasks機能", type: :feature do
     fill_in 'task[description]', with: 'Breakfast for tomorrow'
 
     click_on 'Create New Task'
-
-    expect(page).to have_content 'Success!'
+    expect(page).to have_content I18n.t('flash.success.create', model: Task.model_name.human)
     expect(Task.count).to eq 1
     expect(Task.first.title).to eq 'Buy Milk'
   end
@@ -31,7 +30,7 @@ RSpec.feature "Tasks機能", type: :feature do
     fill_in 'task[title]', with: 'Go to Home'
     click_on 'Update Task'
 
-    expect(page).to have_content('Success! Update Task')
+    expect(page).to have_content I18n.t('flash.success.update', model: Task.model_name.human)
     expect(page).to have_content('Go to Home')
   end
 
@@ -46,7 +45,7 @@ RSpec.feature "Tasks機能", type: :feature do
     click_on 'Delete Task'
 
     # 削除成功のメッセージがある
-    expect(page).to have_content('Success! Deleted Task')
+    expect(page).to have_content I18n.t('flash.success.destroy', model: Task.model_name.human)
     # task が表示されていない
     expect(page).to_not have_content(task.title)
   end
