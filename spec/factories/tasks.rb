@@ -4,8 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string           not null
-#  description :text             not null
-#  status      :integer
+#  description :text
+#  status      :integer          default("not_yet")
 #  due         :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
