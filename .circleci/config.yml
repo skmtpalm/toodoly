@@ -12,7 +12,9 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+       - image: circleci/postgres:9.4
+         environment:
+           POSTGRES_USER: postgres
 
     working_directory: ~/repo
 
@@ -25,7 +27,13 @@ jobs:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Running Test
+          command: |
+            psql -c "create database test" -U postgres
       - run:
           name: install dependencies
           command: |
