@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  flash:
+    success:
+      create: "Create %{model}"
+      update: "Update %{model}"
+      destroy: "Delete %{model}"
