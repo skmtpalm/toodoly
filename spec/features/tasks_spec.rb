@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 RSpec.feature "Tasks機能", type: :feature do
+  context 'タスクの一覧表示' do
+    background do
+      %w(firstTask secondTask LastTask).each do |title|
+        create(:task, title: title)
+      end
+    end
+
+    scenario '作成順に並んでいること' do
+      visit tasks_path
+      tasks = page.all(".task")
+      expect(tasks[0].find('.task__title').text).to eq 'LastTask'
+    end
+  end
 
   scenario 'タスクを作成する' do
     visit new_task_path

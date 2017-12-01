@@ -4,8 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string           not null
-#  description :text             not null
-#  status      :integer
+#  description :text
+#  status      :integer          default("not_yet")
 #  due         :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -18,4 +18,6 @@ class Task < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 100 }
+
+  scope :new_available, -> { order(created_at: :desc) }
 end
