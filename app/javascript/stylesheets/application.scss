@@ -1,7 +1,7 @@
-$fa-font-path: "~font-awesome/fonts";
-@import "~@fengyuanchen/datepicker/dist/datepicker.css";
+@import "~@fengyuanchen/datepicker/dist/datepicker";
 @import "~font-awesome/scss/font-awesome";
 @import "~bulma/bulma";
+$fa-font-path: "~font-awesome/fonts";
 $lightgray: hsla(0, 0%, 0%, 0.1);
 
 body {
