@@ -45,9 +45,11 @@ group :development, :test do
   gem 'annotate'
 
   gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do
+  gem 'terminal-notifier-guard', '~> 1.6.1'
   gem 'foreman'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
